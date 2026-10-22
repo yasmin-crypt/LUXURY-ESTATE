@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Luxury Estate</title>
+    <style>
+        :root { --navy: #0A192F; --gold: #C5A059; --cream: #F8F9FA; --text: #333; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--cream); margin: 0; }
+        
+        nav { padding: 20px 80px; background: var(--navy); display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: var(--gold); font-size: 24px; font-weight: bold; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+
+        .content { padding: 60px 80px; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        
+        .contact-info h2 { color: var(--navy); margin-bottom: 20px; }
+        .info-item { margin-bottom: 20px; }
+        .info-item h4 { color: var(--gold); margin-bottom: 5px; }
+        
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+        .submit-btn { background: var(--navy); color: white; border: none; padding: 15px 30px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; }
+        .submit-btn:hover { background: var(--gold); }
+
+        /* Map Styles - Now inside the info column */
+        .map-section { margin-top: 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); height: 250px; }
+        .map-section iframe { width: 100%; height: 100%; border: 0; }
+
+        footer { background: var(--navy); color: white; text-align: center; padding: 20px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">LUXURY ESTATE</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="properties.html">Properties</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Get in Touch</h1>
+        <div class="contact-grid">
+            <!-- Left Side: Info + Map -->
+            <div class="contact-info">
+                <h2>Visit Our Office</h2>
+                <div class="info-item">
+                    <h4>Address</h4>
+                    <p>123 Luxury Avenue, Cairo, Egypt</p>
+                </div>
+                <div class="info-item">
+                    <h4>Email</h4>
+                    <p>info@luxuryestate.com</p>
+                </div>
+                <div class="info-item">
+                    <h4>Phone</h4>
+                    <p>+20 100 000 0000</p>
+                </div>
+                <!-- الخريطة أصبحت هنا بجانب البيانات -->
+                <div class="map-section">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.123456789!2d31.2333!3d30.0444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAyJzM5LjgiTiAzMcKwMTMnNTkuOSJF!5e0!3m2!1sen!2seg!4v1620000000000!5m2!1sen!2seg" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            
+            <!-- Right Side: Form -->
+            <form onsubmit="event.preventDefault(); alert('Message Sent!');">
+                <div class="form-group"><label>Name</label><input type="text" required></div>
+                <div class="form-group"><label>Email</label><input type="email" required></div>
+                <div class="form-group"><label>Message</label><textarea rows="8" required></textarea></div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>All rights reserved © 2026 Luxury Estate</p>
+    </footer>
+</body>
+</html>

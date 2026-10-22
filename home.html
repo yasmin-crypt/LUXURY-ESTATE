@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Real Estate | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { navy: '#0A192F', gold: '#C5A059', cream: '#F9F7F3' } } }
+        }
+    </script>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; }
+        html[lang="ar"] body { font-family: 'Cairo', sans-serif; }
+ 
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .fade-in-up.active { opacity: 1; transform: translateY(0); }
+ 
+        .marquee-wrapper { width: 100%; overflow: hidden; display: flex; }
+        .marquee { display: flex; gap: 2rem; animation: marquee 25s linear infinite; white-space: nowrap; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+ 
+        .footer-pattern {
+            background-color: #0A192F;
+            background-image: radial-gradient(rgba(197, 160, 89, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+ 
+        /* RTL nav spacing fix */
+        html[dir="rtl"] .nav-links { direction: rtl; }
+        html[dir="rtl"] .nav-links a, html[dir="rtl"] .nav-links button { margin-right: 0; }
+    </style>
+</head>
+<body class="bg-[#FCFAF7]">
+ 
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 p-6 flex justify-between items-center px-10 md:px-20 transition-all duration-300 text-white">
+        <div class="text-gold text-2xl font-bold tracking-wider" data-en="LUXURY ESTATE" data-ar="ميمار العبد">LUXURY ESTATE</div>
+        <div class="nav-links flex items-center gap-8 text-sm font-medium">
+            <a href="index.html" class="text-gold font-bold border-b-2 border-gold pb-1" data-en="Home" data-ar="الرئيسية">Home</a>
+            <a href="properties.html" class="hover:text-gold transition" data-en="Properties" data-ar="المشاريع">Properties</a>
+            <a href="about.html" class="hover:text-white transition" data-en="About Us" data-ar="من نحن">About Us</a>
+            <a href="contact.html" class="hover:text-white transition" data-en="Contact" data-ar="تواصل معنا">Contact</a>
+            <button id="lang-toggle" onclick="toggleLanguage()" class="border border-gold text-gold px-4 py-1 rounded-full hover:bg-gold hover:text-white transition font-bold text-xs">AR</button>
+        </div>
+    </nav>
+ 
+    <!-- HERO -->
+    <header class="relative bg-navy h-screen flex flex-col justify-center items-start text-left px-10 md:px-20 overflow-hidden">
+        <div class="absolute inset-0 bg-black/40 z-10"></div>
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Luxury Home">
+ 
+        <div class="relative z-20 fade-in-up max-w-2xl">
+            <h1 class="text-5xl md:text-7xl font-semibold mb-6 text-white tracking-tight drop-shadow-2xl"
+                data-en="Crafting spaces for <br> the life you deserve"
+                data-ar="نصنع مساحات <br> تليق بحياتك">
+                Crafting spaces for <br> the life you deserve
+            </h1>
+            <p class="text-xl text-gray-200 mb-8 drop-shadow-lg"
+               data-en="Experience the pinnacle of luxury living with our curated portfolio of exceptional properties."
+               data-ar="اكتشف قمة الفخامة في مجموعتنا المختارة من العقارات الاستثنائية في قلب أسوان الجديدة.">
+                Experience the pinnacle of luxury living with our curated portfolio of exceptional properties.
+            </p>
+            <a href="properties.html" class="inline-block bg-gold text-white px-10 py-4 rounded-full hover:bg-white hover:text-navy transition duration-300 font-bold text-sm shadow-md mb-12"
+               data-en="Explore Properties" data-ar="استعرض المشاريع">Explore Properties</a>
+ 
+            <div id="stats-section" class="flex gap-12 text-white">
+                <div>
+                    <h2 id="stat-1" class="text-4xl font-bold text-white mb-1" data-target="500">0+</h2>
+                    <p class="text-sm font-light uppercase tracking-widest text-gray-300" data-en="Properties sold" data-ar="وحدة تم بيعها">Properties sold</p>
+                </div>
+                <div>
+                    <h2 id="stat-2" class="text-4xl font-bold text-white mb-1" data-target="45">0</h2>
+                    <p class="text-sm font-light uppercase tracking-widest text-gray-300" data-en="Days average" data-ar="متوسط أيام الإغلاق">Days average</p>
+                </div>
+                <div>
+                    <h2 id="stat-3" class="text-4xl font-bold text-white mb-1" data-target="15">0</h2>
+                    <p class="text-sm font-light uppercase tracking-widest text-gray-300" data-en="Years experience" data-ar="سنوات خبرة">Years experience</p>
+                </div>
+            </div>
+        </div>
+    </header>
+ 
+    <!-- FEATURED PROPERTIES -->
+    <main class="py-24 px-6 md:px-20 max-w-7xl mx-auto space-y-32">
+        <section class="fade-in-up">
+            <h2 class="text-4xl font-semibold text-navy mb-12 text-center" data-en="Featured Properties" data-ar="أبرز المشاريع">Featured Properties</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 hover:scale-[1.02] border border-gold/10">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811" class="w-full h-64 object-cover" alt="Chalet">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy mb-2" data-en="Bavarian Forest Chalet" data-ar="شاليه غابة بافاريا">Bavarian Forest Chalet</h3>
+                        <p class="text-gold font-bold mb-6">E£ 41.3M</p>
+                        <a href="properties.html" class="block w-full text-center bg-navy text-white py-3 rounded-lg font-bold hover:bg-gold transition" data-en="View Details" data-ar="عرض التفاصيل">View Details</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 hover:scale-[1.02] border border-gold/10">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="w-full h-64 object-cover" alt="Penthouse">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy mb-2" data-en="Golden Harbor Penthouse" data-ar="بنتهاوس الميناء الذهبي">Golden Harbor Penthouse</h3>
+                        <p class="text-gold font-bold mb-6">E£ 25.5M</p>
+                        <a href="properties.html" class="block w-full text-center bg-navy text-white py-3 rounded-lg font-bold hover:bg-gold transition" data-en="View Details" data-ar="عرض التفاصيل">View Details</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 hover:scale-[1.02] border border-gold/10">
+                    <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607" class="w-full h-64 object-cover" alt="Villa">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy mb-2" data-en="Coastal Serenity Villa" data-ar="فيلا السكينة الساحلية">Coastal Serenity Villa</h3>
+                        <p class="text-gold font-bold mb-6">E£ 55.0M</p>
+                        <a href="properties.html" class="block w-full text-center bg-navy text-white py-3 rounded-lg font-bold hover:bg-gold transition" data-en="View Details" data-ar="عرض التفاصيل">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+ 
+    <!-- LOCAL EXPERTS BANNER -->
+    <section class="fade-in-up py-24 bg-navy w-full">
+        <div class="max-w-7xl mx-auto px-6 md:px-20 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-semibold text-gold leading-tight"
+                    data-en="Local experts.<br>Straightforward advice."
+                    data-ar="خبراء محليون.<br>نصائح واضحة وصريحة.">
+                    Local experts.<br>Straightforward advice.
+                </h2>
+            </div>
+            <div>
+                <p class="text-gray-300 text-lg mb-8"
+                   data-en="We help buyers, renters, and investors navigate the market with confidence through clear communication, local expertise, and practical advice."
+                   data-ar="نساعد المشترين والمستأجرين والمستثمرين على التنقل في السوق بثقة من خلال التواصل الواضح والخبرة المحلية والنصائح العملية.">
+                    We help buyers, renters, and investors navigate the market with confidence through clear communication, local expertise, and practical advice.
+                </p>
+                <a href="about.html" class="inline-flex items-center gap-2 border border-gold text-gold px-8 py-3 rounded-full hover:bg-gold hover:text-navy transition duration-300 font-bold text-sm"
+                   data-en="Learn more →" data-ar="← اعرف أكثر">
+                    Learn more →
+                </a>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- WHY NEW ASWAN -->
+    <main class="py-24 px-6 md:px-20 max-w-7xl mx-auto space-y-32">
+        <section class="fade-in-up py-16 bg-[#F9F7F3]">
+            <div class="text-center mb-16">
+                <span class="text-gold font-bold tracking-widest uppercase text-sm border border-gold px-4 py-1 rounded"
+                      data-en="Why New Aswan?" data-ar="لماذا أسوان الجديدة؟">Why New Aswan?</span>
+                <h2 class="text-5xl font-bold text-navy mt-4 mb-6"
+                    data-en="The City Built for Tomorrow" data-ar="المدينة التي بُنيت للمستقبل">The City Built for Tomorrow</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto"
+                   data-en="A rising destination for residence, business, and high-value real estate investment."
+                   data-ar="وجهة متنامية للسكن والأعمال والاستثمار العقاري عالي القيمة.">
+                    A rising destination for residence, business, and high-value real estate investment.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition">
+                    <div class="bg-navy text-white w-12 h-12 flex items-center justify-center font-bold mb-6 rounded">01</div>
+                    <h3 class="text-2xl font-bold text-navy mb-4" data-en="Smart City" data-ar="مدينة ذكية">Smart City</h3>
+                    <p class="text-gray-600" data-en="Digital infrastructure and integrated services make New Aswan a smarter destination for living and work." data-ar="البنية التحتية الرقمية والخدمات المتكاملة تجعل أسوان الجديدة وجهة أذكى للعيش والعمل.">Digital infrastructure and integrated services make New Aswan a smarter destination for living and work.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition">
+                    <div class="bg-navy text-white w-12 h-12 flex items-center justify-center font-bold mb-6 rounded">02</div>
+                    <h3 class="text-2xl font-bold text-navy mb-4" data-en="Strategic Location" data-ar="موقع استراتيجي">Strategic Location</h3>
+                    <p class="text-gray-600" data-en="A vital connection point that keeps residents and investors close to key services and daily movement." data-ar="نقطة ربط حيوية تُبقي السكان والمستثمرين قريبين من الخدمات الرئيسية والحركة اليومية.">A vital connection point that keeps residents and investors close to key services and daily movement.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition">
+                    <div class="bg-navy text-white w-12 h-12 flex items-center justify-center font-bold mb-6 rounded">03</div>
+                    <h3 class="text-2xl font-bold text-navy mb-4" data-en="Investment Return" data-ar="عائد الاستثمار">Investment Return</h3>
+                    <p class="text-gray-600" data-en="Strong demand creates promising returns compared with traditional cities and saturated areas." data-ar="الطلب القوي يُولّد عوائد واعدة مقارنةً بالمدن التقليدية والمناطق المشبعة.">Strong demand creates promising returns compared with traditional cities and saturated areas.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+ 
+    <!-- TESTIMONIALS -->
+    <section class="relative py-24 overflow-hidden bg-navy">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-40"></div>
+        <div class="absolute inset-0 bg-navy/60"></div>
+        <div class="relative z-10">
+            <h2 class="text-4xl font-semibold text-white mb-16 text-center" data-en="Voices of Success" data-ar="آراء عملائنا">Voices of Success</h2>
+            <div class="marquee-wrapper">
+                <div class="marquee">
+                    <div class="w-80 flex-shrink-0 bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20">
+                        <p class="text-white italic mb-4" data-en='"Luxury Estate redefined home buying. Professionalism at its peak."' data-ar='"ميمار العبد غيّر مفهوم شراء العقارات. احترافية في أعلى مستوياتها."'>"Luxury Estate redefined home buying. Professionalism at its peak."</p>
+                        <div class="text-gold mb-2 text-xl">★★★★★</div>
+                        <p class="text-white font-bold">— Ahmed M.</p>
+                    </div>
+                    <div class="w-80 flex-shrink-0 bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20">
+                        <p class="text-white italic mb-4" data-en='"Finding my dream villa was effortless. Truly elite service."' data-ar='"إيجاد فيلتي المثالية كان أمرًا سهلًا معهم. خدمة راقية حقًا."'>"Finding my dream villa was effortless. Truly elite service."</p>
+                        <div class="text-gold mb-2 text-xl">★★★★★</div>
+                        <p class="text-white font-bold">— Sarah L.</p>
+                    </div>
+                    <div class="w-80 flex-shrink-0 bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20">
+                        <p class="text-white italic mb-4" data-en='"Unmatched expertise. They made everything smooth and transparent."' data-ar='"خبرة لا مثيل لها. جعلوا كل شيء سلسًا وشفافًا."'>"Unmatched expertise. They made everything smooth and transparent."</p>
+                        <div class="text-gold mb-2 text-xl">★★★★★</div>
+                        <p class="text-white font-bold">— Omar K.</p>
+                    </div>
+                    <!-- Duplicated for seamless loop -->
+                    <div class="w-80 flex-shrink-0 bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20">
+                        <p class="text-white italic mb-4" data-en='"Luxury Estate redefined home buying. Professionalism at its peak."' data-ar='"ميمار العبد غيّر مفهوم شراء العقارات. احترافية في أعلى مستوياتها."'>"Luxury Estate redefined home buying. Professionalism at its peak."</p>
+                        <div class="text-gold mb-2 text-xl">★★★★★</div>
+                        <p class="text-white font-bold">— Ahmed M.</p>
+                    </div>
+                    <div class="w-80 flex-shrink-0 bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20">
+                        <p class="text-white italic mb-4" data-en='"Finding my dream villa was effortless. Truly elite service."' data-ar='"إيجاد فيلتي المثالية كان أمرًا سهلًا معهم. خدمة راقية حقًا."'>"Finding my dream villa was effortless. Truly elite service."</p>
+                        <div class="text-gold mb-2 text-xl">★★★★★</div>
+                        <p class="text-white font-bold">— Sarah L.</p>
+                    </div>
+                    <div class="w-80 flex-shrink-0 bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20">
+                        <p class="text-white italic mb-4" data-en='"Unmatched expertise. They made everything smooth and transparent."' data-ar='"خبرة لا مثيل لها. جعلوا كل شيء سلسًا وشفافًا."'>"Unmatched expertise. They made everything smooth and transparent."</p>
+                        <div class="text-gold mb-2 text-xl">★★★★★</div>
+                        <p class="text-white font-bold">— Omar K.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- OUR PRIORITIES -->
+    <section class="py-24 bg-[#FCFAF7]">
+        <div class="max-w-7xl mx-auto px-6 md:px-20 text-center">
+            <span class="text-gold font-bold tracking-widest uppercase text-sm border border-gold px-4 py-1 rounded"
+                  data-en="Our Priorities" data-ar="أولوياتنا">Our Priorities</span>
+            <h2 class="text-5xl font-bold text-navy mt-4 mb-6"
+                data-en="Real estate guidance built around confidence, value, and complete service."
+                data-ar="خدمات عقارية مبنية على الثقة والقيمة والخدمة المتكاملة.">
+                Real estate guidance built around confidence, value, and complete service.
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 mt-16">
+                <div class="bg-navy p-8 rounded-3xl border border-gold/20 hover:border-gold transition duration-300">
+                    <div class="text-gold text-4xl mb-6">01</div>
+                    <h3 class="text-xl font-bold text-white mb-4" data-en="Trusted Experience" data-ar="خبرة موثوقة">Trusted Experience</h3>
+                    <p class="text-gray-400" data-en="A specialized team supports you from choosing the right unit through completing the purchase." data-ar="فريق متخصص يرافقك من اختيار الوحدة المناسبة حتى إتمام عملية الشراء.">A specialized team supports you from choosing the right unit through completing the purchase.</p>
+                </div>
+                <div class="bg-navy p-8 rounded-3xl border border-gold/20 hover:border-gold transition duration-300">
+                    <div class="text-gold text-4xl mb-6">02</div>
+                    <h3 class="text-xl font-bold text-white mb-4" data-en="Smart Investment" data-ar="استثمار ذكي">Smart Investment</h3>
+                    <p class="text-gray-400" data-en="Carefully selected opportunities in strategic locations support strong returns and long-term value." data-ar="فرص مختارة بعناية في مواقع استراتيجية تدعم عوائد قوية وقيمة طويلة الأمد.">Carefully selected opportunities in strategic locations support strong returns and long-term value.</p>
+                </div>
+                <div class="bg-navy p-8 rounded-3xl border border-gold/20 hover:border-gold transition duration-300">
+                    <div class="text-gold text-4xl mb-6">03</div>
+                    <h3 class="text-xl font-bold text-white mb-4" data-en="Integrated Services" data-ar="خدمات متكاملة">Integrated Services</h3>
+                    <p class="text-gray-400" data-en="Modern designs, efficient spaces, and attention to detail create a complete living experience." data-ar="تصاميم عصرية ومساحات فعالة واهتمام بالتفاصيل يصنعون تجربة سكن متكاملة.">Modern designs, efficient spaces, and attention to detail create a complete living experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- FOOTER -->
+    <footer class="footer-pattern text-white pt-20 pb-10 px-6 md:px-20 border-t border-gold/20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+            <div class="space-y-6">
+                <div class="flex items-center gap-3">
+                    <svg class="w-12 h-12 text-gold" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 90L50 10L90 90H70L50 45L30 90H10Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                        <path d="M35 80L50 55L65 80H35Z" fill="currentColor"/>
+                    </svg>
+                    <div>
+                        <span class="text-white text-xl font-extrabold tracking-wider block" data-en="MEMAR EL ABD" data-ar="ميمار العبد">MEMAR EL ABD</span>
+                        <span class="text-gold text-xs uppercase tracking-widest block font-semibold" data-en="Development" data-ar="للتطوير العقاري">Development</span>
+                    </div>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed max-w-sm"
+                   data-en="Building trusted investment opportunities and vibrant communities in the heart of New Aswan."
+                   data-ar="نبني فرصًا استثمارية موثوقة ومجتمعات حيوية في قلب أسوان الجديدة.">
+                    Building trusted investment opportunities and vibrant communities in the heart of New Aswan.
+                </p>
+                <div class="pt-2">
+                    <a href="https://facebook.com" target="_blank" class="w-10 h-10 rounded-lg bg-gold hover:bg-white text-navy hover:text-navy font-black text-lg inline-flex items-center justify-center transition-colors shadow-md">f</a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-gold text-lg font-bold mb-6 tracking-wide" data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h3>
+                <ul class="space-y-4 text-sm font-semibold">
+                    <li><a href="index.html" class="text-gray-300 hover:text-gold transition" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                    <li><a href="properties.html" class="text-gray-300 hover:text-gold transition" data-en="Projects" data-ar="المشاريع">Projects</a></li>
+                    <li><a href="about.html" class="text-gray-300 hover:text-gold transition" data-en="About" data-ar="من نحن">About</a></li>
+                    <li><a href="blog.html" class="text-gray-300 hover:text-gold transition" data-en="Project Updates" data-ar="آخر المستجدات">Project Updates</a></li>
+                    <li><a href="about.html" class="text-gray-300 hover:text-gold transition" data-en="Careers" data-ar="وظائف">Careers</a></li>
+                    <li><a href="contact.html" class="text-gray-300 hover:text-gold transition" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4 text-sm">
+                <h3 class="text-gold text-lg font-bold mb-6 tracking-wide" data-en="Contact Info" data-ar="معلومات التواصل">Contact Info</h3>
+                <div class="space-y-3 font-semibold text-gray-300">
+                    <p class="hover:text-gold transition cursor-pointer">01119097360</p>
+                    <p class="hover:text-gold transition cursor-pointer">mimaralabd@gmail.com</p>
+                    <p class="pt-2" data-en="New Aswan - in front of the New Aswan City Authority building" data-ar="أسوان الجديدة - أمام مبنى هيئة مدينة أسوان الجديدة">New Aswan - in front of the New Aswan City Authority building</p>
+                    <p data-en="Sama Towers - Nile Corniche" data-ar="أبراج سما - كورنيش النيل">Sama Towers - Nile Corniche</p>
+                    <p data-en="Aswan City - Aswan Sports Club marketing branch" data-ar="مدينة أسوان - فرع التسويق بالنادي الرياضي">Aswan City - Aswan Sports Club marketing branch</p>
+                    <p data-en="Daraw - beside the General Hospital" data-ar="دراو - بجوار المستشفى العام">Daraw - beside the General Hospital</p>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-gray-800 text-center text-gray-400 text-sm font-semibold">
+            <p data-en="© 2026 Memar El Abd. All rights reserved." data-ar="© 2026 ميمار العبد. جميع الحقوق محفوظة.">© 2026 Memar El Abd. All rights reserved.</p>
+        </div>
+    </footer>
+ 
+    <script>
+        // ─── Scroll animations ───────────────────────────────────────────────
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+ 
+        // ─── Stat counter ────────────────────────────────────────────────────
+        const statsSection = document.getElementById('stats-section');
+        let animated = false;
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('bg-navy/80', 'backdrop-blur-md', 'shadow-lg');
+            else nav.classList.remove('bg-navy/80', 'backdrop-blur-md', 'shadow-lg');
+ 
+            if (!animated && statsSection.getBoundingClientRect().top < window.innerHeight) {
+                animated = true;
+                document.querySelectorAll('[data-target]').forEach(stat => {
+                    const target = +stat.getAttribute('data-target');
+                    const update = () => {
+                        const current = +stat.innerText.replace(/[^0-9]/g, '');
+                        const increment = target / 50;
+                        if (current < target) {
+                            stat.innerText = Math.ceil(current + increment) + (stat.id === 'stat-1' ? '+' : '');
+                            setTimeout(update, 30);
+                        } else {
+                            stat.innerText = target + (stat.id === 'stat-1' ? '+' : '');
+                        }
+                    };
+                    update();
+                });
+            }
+        });
+ 
+        // ─── Language toggle ─────────────────────────────────────────────────
+        let currentLang = 'en';
+ 
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            const html = document.documentElement;
+            const btn  = document.getElementById('lang-toggle');
+ 
+            if (currentLang === 'ar') {
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
+                btn.textContent = 'EN';
+            } else {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+                btn.textContent = 'AR';
+            }
+ 
+            // Update every element that has data-en / data-ar
+            document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+                const text = el.getAttribute('data-' + currentLang);
+                // Use innerHTML so <br> tags work
+                el.innerHTML = text;
+            });
+        }
+    </script>
+</body>
+</html>

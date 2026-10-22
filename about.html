@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Luxury Estate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { navy: '#0A192F', gold: '#C5A059', cream: '#F9F7F3', } } }
+        }
+    </script>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; }
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .fade-in-up.active { opacity: 1; transform: translateY(0); }
+        .glass-box { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); }
+    </style>
+</head>
+<body class="bg-[#FCFAF7]">
+
+    <nav class="p-6 bg-navy flex justify-between items-center px-10 md:px-20 border-b border-gray-800">
+        <div class="text-gold text-2xl font-bold tracking-wider">LUXURY ESTATE</div>
+        <div class="space-x-8 text-sm text-white font-medium">
+            <a href="index.html" class="hover:text-gold transition">Home</a>
+            <a href="properties.html" class="hover:text-white transition">Properties</a>
+            <a href="about.html" class="text-gold font-bold border-b-2 border-gold pb-1">About Us</a>
+            <a href="contact.html" class="hover:text-white transition">Contact</a>
+            
+        </div>
+    </nav>
+
+    <header class="relative bg-navy h-[500px] flex flex-col justify-center items-center text-center text-white px-6 overflow-hidden">
+        <div class="absolute inset-0 bg-black/60 z-10"></div> 
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Luxury Interior">
+        
+        <div class="relative z-20">
+            <h1 class="text-6xl font-semibold mb-6 tracking-tight drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]">About us</h1>
+            <p class="text-xl text-gray-200 mb-8 max-w-xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">Building relationships, delivering results through trust and luxury real estate expertise</p>
+            <a href="contact.html" class="border border-white text-white px-10 py-4 rounded-full hover:bg-gold hover:border-gold transition duration-300 font-medium text-sm shadow-md">Get in touch</a>
+        </div>
+    </header>
+
+    <main class="py-24 px-6 md:px-20 max-w-7xl mx-auto space-y-32">
+        <section class="grid md:grid-cols-2 gap-16 items-center fade-in-up">
+            <div class="bg-gray-300 h-[400px] rounded-2xl overflow-hidden shadow-lg transition-transform duration-500 hover:shadow-2xl hover:scale-[1.02]">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80" alt="Team" class="w-full h-full object-cover">
+            </div>
+            <div class="p-8 glass-box rounded-2xl shadow-sm border border-white/20">
+                <h3 class="text-xs font-bold tracking-widest text-gold uppercase mb-3">Our Story</h3>
+                <h2 class="text-4xl font-semibold text-navy mb-6">Who we are</h2>
+                <p class="text-navy leading-relaxed text-lg mb-4">We're a team of dedicated professionals who understand that finding the right property isn't just about bricks and mortar, it's about finding your next chapter.</p>
+            </div>
+        </section>
+
+        <section class="grid md:grid-cols-2 gap-16 items-center fade-in-up">
+            <div class="order-2 md:order-1 p-8 glass-box rounded-2xl shadow-sm border border-white/20">
+                <h3 class="text-xs font-bold tracking-widest text-gold uppercase mb-3">What drives us</h3>
+                <h2 class="text-4xl font-semibold text-navy mb-6">Our values</h2>
+                <p class="text-navy leading-relaxed text-lg mb-4">Integrity, transparency, and results. We believe in honest advice, clear communication, and going the extra mile.</p>
+            </div>
+            <div class="order-1 md:order-2 bg-gray-300 h-[400px] rounded-2xl overflow-hidden shadow-lg transition-transform duration-500 hover:shadow-2xl hover:scale-[1.02]">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80" alt="Value" class="w-full h-full object-cover">
+            </div>
+        </section>
+    </main>
+
+    <!-- Increased padding from py-16 to py-24 for a larger, more prominent strip -->
+    <section class="bg-navy py-24 text-center text-white px-6 w-full">
+        <h2 class="text-4xl font-semibold mb-8">See what's available</h2>
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+            <a href="properties.html" class="bg-gold text-white px-10 py-4 rounded-full hover:bg-white hover:text-navy transition font-semibold text-base shadow-lg">Freehold properties →</a>
+            <a href="properties.html" class="border border-white text-white px-10 py-4 rounded-full hover:bg-white hover:text-navy transition font-semibold text-base shadow-lg">Leasehold properties →</a>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 md:px-20 max-w-6xl mx-auto fade-in-up">
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="md:col-span-1">
+                <h2 class="text-3xl font-bold text-navy mb-4">Frequently asked questions</h2>
+                <p class="text-gray-600">Clear answers to common questions about buying, renting, and investing.</p>
+            </div>
+            <div class="md:col-span-2 space-y-4">
+                <div class="border-b border-gray-300 pb-4">
+                    <button onclick="toggleFAQ(this)" class="w-full flex justify-between items-center text-left py-2 font-bold text-navy">
+                        <span>What types of properties do you specialise in?</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="hidden pt-2 text-gray-600 text-sm">We focus on high-end residential, villas, and luxury penthouses in prime locations.</div>
+                </div>
+                <div class="border-b border-gray-300 pb-4">
+                    <button onclick="toggleFAQ(this)" class="w-full flex justify-between items-center text-left py-2 font-bold text-navy">
+                        <span>Do you work with both local and international clients?</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="hidden pt-2 text-gray-600 text-sm">Absolutely, we have a dedicated team for international clients and can assist with all legal requirements.</div>
+                </div>
+                <div class="border-b border-gray-300 pb-4">
+                    <button onclick="toggleFAQ(this)" class="w-full flex justify-between items-center text-left py-2 font-bold text-navy">
+                        <span>Can you help me understand ownership and legal structures?</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="hidden pt-2 text-gray-600 text-sm">Yes, our legal partners ensure that every acquisition is transparent and secure.</div>
+                </div>
+                <div class="border-b border-gray-300 pb-4">
+                    <button onclick="toggleFAQ(this)" class="w-full flex justify-between items-center text-left py-2 font-bold text-navy">
+                        <span>Do you charge fees to buyers or renters?</span>
+                        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="hidden pt-2 text-gray-600 text-sm">Our fee structure is transparent and discussed upfront during the initial consultation.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-navy text-gray-500 text-center py-8 border-t border-gray-800 text-xs">
+        <p>All rights reserved © 2026 Luxury Estate</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+        function toggleFAQ(button) {
+            const answer = button.nextElementSibling;
+            const arrow = button.querySelector('svg');
+            answer.classList.toggle('hidden');
+            arrow.classList.toggle('rotate-180');
+        }
+    </script>
+</body>
+</html>
